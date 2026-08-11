@@ -1,0 +1,1 @@
+import {Route as rootRouteImport} from './routes/__root';import {Route as IndexRouteImport} from './routes/index';const IndexRoute=IndexRouteImport.update({id:'/',path:'/',getParentRoute:()=>rootRouteImport} as any);export const routeTree=rootRouteImport._addFileChildren({IndexRoute})._addFileTypes<any>();
