@@ -1,7 +1,11 @@
 import { requireSupabase } from '../supabase';
 
-export async function signUp(email: string, password: string) {
-  return requireSupabase().auth.signUp({ email, password });
+export async function signUp(email: string, password: string, name?: string) {
+  return requireSupabase().auth.signUp({
+    email,
+    password,
+    options: name ? { data: { name } } : undefined,
+  });
 }
 
 export async function signIn(email: string, password: string) {
