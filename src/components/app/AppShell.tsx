@@ -1,21 +1,4 @@
 import { Link, useNavigate } from '@tanstack/react-router';
-import { Bot, LayoutDashboard, LogOut, Plus, Settings2, Users } from 'lucide-react';
+import { Bot, LayoutDashboard, LogOut, Plus, Settings2, Users, BookOpen, MessageSquare, BarChart3 } from 'lucide-react';
 import { signOut } from '@/lib/botlab/auth';
-
-export function AppShell({ children }: { children: React.ReactNode }) {
-  const navigate = useNavigate();
-  async function logout() { await signOut(); navigate({ to: '/auth' }); }
-  return <div className="min-h-screen bg-[#f7f8fa] text-slate-950">
-    <aside className="fixed inset-y-0 left-0 hidden w-64 border-r border-slate-200 bg-white p-5 md:block">
-      <Link to="/" className="mb-8 flex items-center gap-2 text-xl font-black tracking-tight"><span className="grid h-9 w-9 place-items-center rounded-xl bg-slate-950 text-white">B</span> BotLab</Link>
-      <nav className="space-y-1 text-sm font-medium">
-        <Link to="/app" className="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-slate-100"><LayoutDashboard size={17}/> Dashboard</Link>
-        <Link to="/app/bots" className="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-slate-100"><Bot size={17}/> My bots</Link>
-        <Link to="/app/leads" className="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-slate-100"><Users size={17}/> Leads</Link>
-        <Link to="/app/settings" className="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-slate-100"><Settings2 size={17}/> Settings</Link>
-      </nav>
-      <button onClick={logout} className="absolute bottom-5 left-5 flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-500 hover:bg-slate-100"><LogOut size={17}/> Sign out</button>
-    </aside>
-    <main className="md:ml-64"><header className="flex h-16 items-center justify-between border-b border-slate-200 bg-white px-5 md:px-8"><div className="font-semibold">BotLab Studio</div><Link to="/app/bots/new" className="inline-flex items-center gap-2 rounded-xl bg-slate-950 px-4 py-2 text-sm font-semibold text-white"><Plus size={16}/> New bot</Link></header>{children}</main>
-  </div>;
-}
+export function AppShell({ children }: { children: React.ReactNode }) { const navigate=useNavigate(); async function logout(){await signOut();navigate({to:'/auth'});} return <div className="min-h-screen bg-[#f7f8fa] text-slate-950"><aside className="fixed inset-y-0 left-0 hidden w-64 border-r border-slate-200 bg-white p-5 md:block"><Link to="/" className="mb-8 flex items-center gap-2 text-xl font-black tracking-tight"><span className="grid h-9 w-9 place-items-center rounded-xl bg-slate-950 text-white">B</span>BotLab</Link><nav className="space-y-1 text-sm font-medium"><Link to="/app" className="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-slate-100"><LayoutDashboard size={17}/>Dashboard</Link><Link to="/app/bots" className="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-slate-100"><Bot size={17}/>My bots</Link><Link to="/app/knowledge" className="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-slate-100"><BookOpen size={17}/>Knowledge</Link><Link to="/app/conversations" className="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-slate-100"><MessageSquare size={17}/>Conversations</Link><Link to="/app/leads" className="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-slate-100"><Users size={17}/>Leads</Link><Link to="/app/analytics" className="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-slate-100"><BarChart3 size={17}/>Analytics</Link><Link to="/app/settings" className="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-slate-100"><Settings2 size={17}/>Settings</Link></nav><button onClick={logout} className="absolute bottom-5 left-5 flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-500 hover:bg-slate-100"><LogOut size={17}/>Sign out</button></aside><main className="md:ml-64"><header className="flex h-16 items-center justify-between border-b border-slate-200 bg-white px-5 md:px-8"><div className="font-semibold">BotLab Studio</div><Link to="/app/bots/new" className="inline-flex items-center gap-2 rounded-xl bg-slate-950 px-4 py-2 text-sm font-semibold text-white"><Plus size={16}/>New bot</Link></header>{children}</main></div>; }
