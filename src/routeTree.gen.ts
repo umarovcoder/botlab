@@ -1,1 +1,12 @@
-import {Route as rootRouteImport} from './routes/__root';import {Route as IndexRouteImport} from './routes/index';const IndexRoute=IndexRouteImport.update({id:'/',path:'/',getParentRoute:()=>rootRouteImport} as any);export const routeTree=rootRouteImport._addFileChildren({IndexRoute})._addFileTypes<any>();
+import {Route as rootRouteImport} from './routes/__root';
+import {Route as IndexRouteImport} from './routes/index';
+import {Route as AuthRouteImport} from './routes/auth';
+import {Route as AppRouteImport} from './routes/app';
+import {Route as AppBotsRouteImport} from './routes/app.bots';
+import {Route as AppBotsNewRouteImport} from './routes/app.bots.new';
+const IndexRoute=IndexRouteImport.update({id:'/',path:'/',getParentRoute:()=>rootRouteImport} as any);
+const AuthRoute=AuthRouteImport.update({id:'/auth',path:'/auth',getParentRoute:()=>rootRouteImport} as any);
+const AppRoute=AppRouteImport.update({id:'/app',path:'/app',getParentRoute:()=>rootRouteImport} as any);
+const AppBotsRoute=AppBotsRouteImport.update({id:'/app/bots',path:'/app/bots',getParentRoute:()=>rootRouteImport} as any);
+const AppBotsNewRoute=AppBotsNewRouteImport.update({id:'/app/bots/new',path:'/app/bots/new',getParentRoute:()=>rootRouteImport} as any);
+export const routeTree=rootRouteImport._addFileChildren({IndexRoute,AuthRoute,AppRoute,AppBotsRoute,AppBotsNewRoute})._addFileTypes<any>();
